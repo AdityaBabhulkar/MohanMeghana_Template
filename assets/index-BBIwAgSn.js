@@ -25140,17 +25140,7 @@ const b$ = {
       "gifts.message":
         "Your presence is the best gift we could receive. However, if you wish to contribute to our new life together, you can do so via bank transfer.",
       "gifts.withLove": "With all our love",
-      "gifts.bankDetails": "Bank details",
-      "gifts.accountHolder": "ACCOUNT HOLDER",
-      "gifts.concept": "REFERENCE: Mohan & Meghana Wedding",
-      "transport.howToGet": "How to get there",
-      "transport.title": "Transport",
-      "transport.description":
-        "We have organized buses from the center of Florence to the villa so you can enjoy the celebration without worries.",
-      "transport.departure": "Bus departure",
-      "transport.returnTo": "Return to Florence",
-      "transport.rsvpNote":
-        "Please indicate in your RSVP if you need transport",
+      
       "rsvp.title": "Confirm your attendance",
       "rsvp.deadline": "Please respond by September 1st",
       "rsvp.fullName": "Full name *",
@@ -26250,41 +26240,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
             children: e("gifts.withLove"),
           }),
         }),
-        f.jsxs(z.div, {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, ease: "easeOut", delay: 0.6 },
-          viewport: { once: !0 },
-          className: "text-center",
-          children: [
-            f.jsx("p", {
-              className: "font-body text-xs tracking-[0.2em] uppercase mb-4",
-              style: { color: "#5C2018" },
-              children: e("gifts.bankDetails"),
-            }),
-            f.jsxs("div", {
-              className: "border-2 px-8 py-6 inline-block",
-              style: { borderColor: "#5C2018" },
-              children: [
-                f.jsxs("p", {
-                  className: "font-body text-sm tracking-wide mb-2",
-                  style: { color: "#5C2018" },
-                  children: [e("gifts.accountHolder"), ": Mohan & Meghana"],
-                }),
-                f.jsx("p", {
-                  className: "font-body text-sm tracking-wide mb-2",
-                  style: { color: "#5C2018" },
-                  children: "IBAN: ES00 0000 0000 0000 0000 0000",
-                }),
-                f.jsx("p", {
-                  className: "font-body text-sm tracking-wide",
-                  style: { color: "#5C2018" },
-                  children: e("gifts.concept"),
-                }),
-              ],
-            }),
-          ],
-        }),
+       
       ],
     });
   },
@@ -26293,94 +26249,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
     return f.jsxs("section", {
       className:
         "bg-white flex flex-col items-center justify-center py-12 px-8",
-      children: [
-        f.jsxs(z.div, {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, ease: "easeOut" },
-          viewport: { once: !0 },
-          className: "text-center mb-12",
-          children: [
-            f.jsx("p", {
-              className: "font-body text-xs tracking-[0.2em] uppercase mb-4",
-              style: { color: "#5C2018" },
-              children: e("transport.howToGet"),
-            }),
-            f.jsx("h2", {
-              className: "font-display text-5xl md:text-6xl tracking-wide",
-              style: { color: "#5C2018" },
-              children: e("transport.title"),
-            }),
-          ],
-        }),
-        f.jsx(z.div, {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, ease: "easeOut", delay: 0.2 },
-          viewport: { once: !0 },
-          className: "text-center max-w-xl mb-16",
-          children: f.jsx("p", {
-            className: "font-body text-base leading-relaxed",
-            style: { color: "#5C2018" },
-            children: e("transport.description"),
-          }),
-        }),
-        f.jsxs(z.div, {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, ease: "easeOut", delay: 0.4 },
-          viewport: { once: !0 },
-          className: "text-center mb-16",
-          children: [
-            f.jsx("p", {
-              className: "font-body text-xs tracking-[0.2em] uppercase mb-6",
-              style: { color: "#5C2018" },
-              children: e("transport.departure"),
-            }),
-            f.jsx("p", {
-              className: "font-display text-2xl md:text-3xl tracking-wide mb-2",
-              style: { color: "#5C2018" },
-              children: "Piazza della Signoria",
-            }),
-            f.jsx("p", {
-              className: "font-display text-xl md:text-2xl tracking-wide",
-              style: { color: "#5C2018" },
-              children: "16:00h",
-            }),
-          ],
-        }),
-        f.jsxs(z.div, {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, ease: "easeOut", delay: 0.6 },
-          viewport: { once: !0 },
-          className: "text-center mb-12",
-          children: [
-            f.jsx("p", {
-              className: "font-body text-xs tracking-[0.2em] uppercase mb-6",
-              style: { color: "#5C2018" },
-              children: e("transport.returnTo"),
-            }),
-            f.jsx("p", {
-              className: "font-display text-xl md:text-2xl tracking-wide",
-              style: { color: "#5C2018" },
-              children: "02:00h",
-            }),
-          ],
-        }),
-        f.jsx(z.div, {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, ease: "easeOut", delay: 0.8 },
-          viewport: { once: !0 },
-          className: "text-center",
-          children: f.jsx("p", {
-            className: "font-script text-2xl md:text-3xl",
-            style: { color: "#5C2018" },
-            children: e("transport.rsvpNote"),
-          }),
-        }),
-      ],
+     
     });
   },
   kg = Bu(
