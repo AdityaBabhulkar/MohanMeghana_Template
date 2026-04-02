@@ -26185,70 +26185,16 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
       ],
     });
   },
-  F$ = "/assets/gift-icon-BssCdzah.png",
+  
   V$ = () => {
     const { t: e } = lr();
-    return f.jsxs("section", {
-      className: "flex flex-col items-center justify-center py-12 px-8",
-      style: { backgroundColor: "#FAF8F5" },
-      children: [
-        f.jsxs(z.div, {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, ease: "easeOut" },
-          viewport: { once: !0 },
-          className: "text-center mb-12",
-          children: [
-            f.jsx("p", {
-              className: "font-body text-xs tracking-[0.2em] uppercase mb-4",
-              style: { color: "#5C2018" },
-              children: e("gifts.weddingList"),
-            }),
-            f.jsx("img", {
-              src: F$,
-              alt: "Regalo",
-              className: "w-28 h-28 mx-auto mb-4 object-contain",
-            }),
-            f.jsx("h2", {
-              className: "font-display text-5xl md:text-6xl tracking-wide",
-              style: { color: "#5C2018" },
-              children: e("gifts.title"),
-            }),
-          ],
-        }),
-        f.jsx(z.div, {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, ease: "easeOut", delay: 0.2 },
-          viewport: { once: !0 },
-          className: "text-center max-w-xl mb-12",
-          children: f.jsx("p", {
-            className: "font-body text-base leading-relaxed mb-6",
-            style: { color: "#5C2018" },
-            children: e("gifts.message"),
-          }),
-        }),
-        f.jsx(z.div, {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, ease: "easeOut", delay: 0.4 },
-          viewport: { once: !0 },
-          className: "text-center mb-12",
-          children: f.jsx("p", {
-            className: "font-script text-3xl md:text-4xl",
-            style: { color: "#5C2018" },
-            children: e("gifts.withLove"),
-          }),
-        }),
-       
-      ],
-    });
+    
   },
   U$ = () => {
     const { t: e } = lr();
     return f.jsxs("section", {
       className:
-        "bg-white flex flex-col items-center justify-center py-12 px-8",
+        "bg-white ",
      
     });
   },
