@@ -25140,7 +25140,7 @@ const b$ = {
       "gifts.message":
         "Your presence is the best gift we could receive. However, if you wish to contribute to our new life together, you can do so via bank transfer.",
       "gifts.withLove": "With all our love",
-      
+
       "rsvp.title": "Confirm your attendance",
       "rsvp.deadline": "Please respond by September 1st",
       "rsvp.fullName": "Full name *",
@@ -25192,8 +25192,7 @@ const b$ = {
       "countdown.seconds": "Sec",
       "countdown.forTheBigDay": "al grande giorno",
       "saveTheDate.celebrationAt": "La celebrazione si terrà presso",
-      
-      
+
       "saveTheDate.receptionToFollow": "A seguire il ricevimento",
       "dressCode.title": "Dress Code",
       "dressCode.description":
@@ -25815,7 +25814,6 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
           viewport: { once: !0 },
           className: "relative max-w-2xl w-full mb-8",
           children: [
-            
             f.jsx("img", {
               src: j$,
               alt: "Venue Illustration",
@@ -25833,7 +25831,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
             className:
               "font-display text-3xl md:text-4xl lg:text-5xl tracking-wide leading-tight",
             style: { color: "#5C2018" },
-            children: "At VMRDA Conventions ",
+            children: "VMRDA Conventions ",
           }),
         }),
         f.jsxs(z.div, {
@@ -25846,39 +25844,62 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
             f.jsx("p", {
               className: "font-body text-xs tracking-[0.2em] uppercase",
               style: { color: "#5C2018" },
-              children:
-                "Vepagunta Junction, Near Sai Baba Temple, Pinagadi Road,",
+              children: "Vepagunta Junction, Near Sai Baba Temple,",
             }),
             f.jsx("p", {
               className: "font-body text-xs tracking-[0.2em] uppercase",
               style: { color: "#5C2018" },
-              children: "Vepagunta, Visakhapatnam.",
+              children: "Pinagadi Road, Vepagunta, Visakhapatnam.",
             }),
           ],
         }),
-        f.jsx(z.div, {
+        f.jsxs(z.div, {
           initial: { opacity: 0, y: 30 },
           whileInView: { opacity: 1, y: 0 },
           transition: { duration: 0.8, ease: "easeOut", delay: 0.6 },
           viewport: { once: !0 },
-          className: "text-center mb-10",
-          children: f.jsx("p", {
-            className: "font-display text-2xl md:text-3xl tracking-wide",
-            style: { color: "#5C2018" },
-            children: "April 29, 2026",
-          }),
+          className: "text-center mb-8",
+          children: [
+             f.jsx("h3", {
+                className: "font-display text-xl md:text-2xl tracking-wide mb-2",
+                style: { color: "#5C2018" },
+                children: "Sumuhurtham"
+             }),
+             f.jsx("p", {
+                className: "font-body text-sm md:text-base leading-relaxed",
+                style: { color: "#5C2018" },
+                children: "On Wednesday 29th April 2026 at 12:52 a.m."
+             }),
+             f.jsx("p", {
+                className: "font-body text-xs md:text-sm italic",
+                style: { color: "#5C2018" },
+                children: "(Early hours of Thursday) Chittha Nakshatram, Makara Lagnam."
+             }),
+          ],
         }),
-        f.jsx(z.div, {
+        f.jsxs(z.div, {
           initial: { opacity: 0, y: 30 },
           whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, ease: "easeOut", delay: 1 },
+          transition: { duration: 0.8, ease: "easeOut", delay: 0.7 },
           viewport: { once: !0 },
           className: "text-center",
-          children: f.jsx("p", {
-            className: "font-script text-3xl md:text-4xl",
-            style: { color: "#5C2018" },
-            children: e("saveTheDate.receptionToFollow"),
-          }),
+          children: [
+             f.jsx("h3", {
+                className: "font-display text-xl md:text-2xl tracking-wide mb-2",
+                style: { color: "#5C2018" },
+                children: "Dinner"
+             }),
+             f.jsx("p", {
+                className: "font-body text-sm md:text-base leading-relaxed",
+                style: { color: "#5C2018" },
+                children: "On Wednesday 29th April 2026"
+             }),
+             f.jsx("p", {
+                className: "font-body text-xs md:text-sm italic",
+                style: { color: "#5C2018" },
+                children: "from 7:30 p.m. onwards at the Marriage Venue."
+             }),
+          ]
         }),
       ],
     });
@@ -26069,7 +26090,6 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
                     style: { color: "#5C2018" },
                     children: "12:00 noon onwards",
                   }),
-                  
                 ],
               }),
               f.jsxs(z.div, {
@@ -26117,85 +26137,15 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
     }),
   L$ = "/assets/dresscode-illustration-BT5yPEQh.png",
   $$ = () => {
-    const { t: e } = lr();
-    return f.jsxs("section", {
-      className:
-        "bg-white flex flex-col items-center justify-center py-12 px-8",
-      children: [
-        f.jsx(z.div, {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, ease: "easeOut" },
-          viewport: { once: !0 },
-          className: "text-center mb-8",
-          children: f.jsx("h2", {
-            className: "font-display text-5xl md:text-6xl tracking-wide",
-            style: { color: "#5C2018" },
-            children: e("dressCode.title"),
-          }),
-        }),
-        f.jsx(z.div, {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, ease: "easeOut", delay: 0.2 },
-          viewport: { once: !0 },
-          className: "w-full max-w-xs mb-8",
-          children: f.jsx("img", {
-            src: L$,
-            alt: "Dress Code Illustration",
-            className: "w-full h-auto",
-          }),
-        }),
-        f.jsx(z.div, {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, ease: "easeOut", delay: 0.4 },
-          viewport: { once: !0 },
-          className: "text-center max-w-xl mb-8",
-          children: f.jsx("p", {
-            className: "font-body text-base leading-relaxed",
-            style: { color: "#5C2018" },
-            children: e("dressCode.description"),
-          }),
-        }),
-        f.jsx(z.div, {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, ease: "easeOut", delay: 0.6 },
-          viewport: { once: !0 },
-          className: "text-center mb-8",
-          children: f.jsx("p", {
-            className: "font-display text-3xl md:text-4xl tracking-wide",
-            style: { color: "#5C2018" },
-            children: e("dressCode.formal"),
-          }),
-        }),
-        f.jsx(z.div, {
-          initial: { opacity: 0, y: 30 },
-          whileInView: { opacity: 1, y: 0 },
-          transition: { duration: 0.8, ease: "easeOut", delay: 0.8 },
-          viewport: { once: !0 },
-          className: "text-center",
-          children: f.jsx("p", {
-            className: "font-script text-2xl md:text-3xl",
-            style: { color: "#5C2018" },
-            children: e("dressCode.avoidWhite"),
-          }),
-        }),
-      ],
-    });
+    return null;
   },
-  
   V$ = () => {
     const { t: e } = lr();
-    
   },
   U$ = () => {
     const { t: e } = lr();
     return f.jsxs("section", {
-      className:
-        "bg-white ",
-     
+      className: "bg-white ",
     });
   },
   kg = Bu(
@@ -36693,23 +36643,27 @@ const Dw = "/assets/intro-music-CzqJOUtA.mp3",
                   children: "Mohan & Meghana",
                 }),
                 f.jsx(z.p, {
-  initial: { opacity: 0, y: 10 },
-  whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, delay: 0.4 },
-  viewport: { once: !0 },
-  className: "font-body text-sm md:text-base leading-relaxed mb-6",
-  style: { color: "#5C2018",marginTop:"30px" },
-  children: [
-    "Made with Love ❤️ by ",
-    f.jsx("a", {
-      href: "https://theluxuryinvites.com",
-      target: "_blank",
-      rel: "noopener noreferrer",
-      style: { fontWeight: "bold", textDecoration: "underline" },
-      children: "Luxury Invite"
-    })
-  ]
-}),
+                  initial: { opacity: 0, y: 10 },
+                  whileInView: { opacity: 1, y: 0 },
+                  transition: { duration: 0.6, delay: 0.4 },
+                  viewport: { once: !0 },
+                  className:
+                    "font-body text-sm md:text-base leading-relaxed mb-6",
+                  style: { color: "#5C2018", marginTop: "30px" },
+                  children: [
+                    "Made with Love ❤️ by ",
+                    f.jsx("a", {
+                      href: "https://theluxuryinvites.com",
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                      style: {
+                        fontWeight: "bold",
+                        textDecoration: "underline",
+                      },
+                      children: "Luxury Invite",
+                    }),
+                  ],
+                }),
               ],
             }),
           }),
@@ -36735,22 +36689,22 @@ const Dw = "/assets/intro-music-CzqJOUtA.mp3",
       f.jsxs(f.Fragment, {
         children: [
           f.jsxs("div", {
-            
-          className: "fixed top-4 left-4 z-[9999] flex items-center gap-2",
-children: [
-  f.jsx("a", {
-    href: "https://theluxuryinvites.com",
-    target: "_blank",
-    rel: "noopener noreferrer",
-    children: f.jsx("img", {
-      src: $V,
-      alt: "The Luxury Invite",
-      // Reduced to w-14 h-14 (56px) for a more balanced look
-      // Kept object-cover and rounded-full for the circular logo style
-      className: "w-14 h-14 object-cover rounded-full border-2 border-black/10 shadow-sm",
-    }),
-  }),
-],
+            className: "fixed top-4 left-4 z-[9999] flex items-center gap-2",
+            children: [
+              f.jsx("a", {
+                href: "https://theluxuryinvites.com",
+                target: "_blank",
+                rel: "noopener noreferrer",
+                children: f.jsx("img", {
+                  src: $V,
+                  alt: "The Luxury Invite",
+                  // Reduced to w-14 h-14 (56px) for a more balanced look
+                  // Kept object-cover and rounded-full for the circular logo style
+                  className:
+                    "w-14 h-14 object-cover rounded-full border-2 border-black/10 shadow-sm",
+                }),
+              }),
+            ],
           }),
           f.jsx(fu, {
             children:
@@ -36933,6 +36887,58 @@ const UV = () => {
         f.jsx(VV, {}),
         f.jsx(MV, { startPlaying: e }),
         f.jsx(k$, { onFirstClick: n }),
+        f.jsxs("section", {
+          className: "min-h-screen flex flex-col items-center justify-center py-12 px-8",
+          style: { backgroundColor: "rgb(250, 248, 245)" },
+          children: [
+            f.jsxs("div", {
+              className: "text-center mb-6",
+              children: [
+                f.jsx("h2", {
+                  className: "font-script text-4xl md:text-5xl mb-2",
+                  style: { color: "rgb(92, 32, 24)" },
+                  children: "Mohan"
+                }),
+                f.jsxs("p", {
+                  className: "font-body text-xs md:text-sm tracking-[0.15em] uppercase",
+                  style: { color: "rgb(92, 32, 24)", lineHeight: 1.6 },
+                  children: [
+                    "Youngest Son of Polumuru Thrinadhachari,",
+                    f.jsx("br", {}),
+                    "Smt. Sujatha"
+                  ]
+                })
+              ]
+            }),
+            f.jsx("div", {
+              className: "text-center mb-6",
+              children: f.jsx("h2", {
+                className: "font-script text-3xl md:text-4xl",
+                style: { color: "rgb(92, 32, 24)" },
+                children: "&"
+              })
+            }),
+            f.jsxs("div", {
+              className: "text-center mb-8",
+              children: [
+                f.jsx("h2", {
+                  className: "font-script text-4xl md:text-5xl mb-2",
+                  style: { color: "rgb(92, 32, 24)" },
+                  children: "Meghana"
+                }),
+                f.jsxs("p", {
+                  className: "font-body text-xs md:text-sm tracking-[0.15em] uppercase",
+                  style: { color: "rgb(92, 32, 24)", lineHeight: 1.6 },
+                  children: [
+                    "Only Daughter of Dosuru Venkatarao,",
+                    f.jsx("br", {}),
+                    "Smt. Lakshmi"
+                  ]
+                })
+              ]
+            })
+          ]
+        }),
         f.jsx(N$, {}),
         f.jsx(I$, {}),
         f.jsx(O$, {}),
