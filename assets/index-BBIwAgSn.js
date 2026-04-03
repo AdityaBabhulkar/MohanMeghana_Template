@@ -25257,17 +25257,16 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
       [s, i] = g.useState(!1),
       o = g.useRef(null),
       { t: a } = lr();
-    (g.useEffect(
-      () => (
-        n === "idle"
-          ? (document.body.style.overflow = "hidden")
-          : (document.body.style.overflow = ""),
+    (g.useEffect(() => {
+      return (
+        (document.body.style.overflow = ""),
+        (document.documentElement.style.overflow = ""),
         () => {
-          document.body.style.overflow = "";
+          (document.body.style.overflow = ""),
+          (document.documentElement.style.overflow = "");
         }
-      ),
-      [n],
-    ),
+      );
+    }, []),
       g.useEffect(() => {
         const d = new Image();
         d.src = cw;
@@ -25610,7 +25609,8 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
             d === 3 &&
               (r(!0),
               setTimeout(() => {
-                (i(!1), (document.body.style.overflow = ""));
+                ((i(!1), (document.body.style.overflow = "")),
+                (document.documentElement.style.overflow = ""));
               }, 500)),
             d
           );
@@ -25618,17 +25618,25 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
       };
     return (
       g.useEffect(() => {
+        return (
+          (document.body.style.overflow = ""),
+          (document.documentElement.style.overflow = ""),
+          () => {
+            (document.body.style.overflow = ""),
+            (document.documentElement.style.overflow = "");
+          }
+        );
+      }, []),
+      g.useEffect(() => {
         const u = o.current;
         if (!u) return;
-        const d = new IntersectionObserver(
+          const d = new IntersectionObserver(
           (h) => {
             h.forEach((p) => {
               p.isIntersecting &&
                 p.intersectionRatio >= 0.9 &&
                 e < 3 &&
-                (i(!0),
-                (document.body.style.overflow = "hidden"),
-                (document.documentElement.style.overflow = "hidden"));
+                i(!0);
             });
           },
           { threshold: [0.9] },
@@ -25642,28 +25650,6 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
       }, [e]),
       g.useEffect(() => {
         if (!s) return;
-        const u = (h) => (h.preventDefault(), h.stopPropagation(), !1),
-          d = (h) => {
-            [
-              "ArrowUp",
-              "ArrowDown",
-              "PageUp",
-              "PageDown",
-              "Home",
-              "End",
-              " ",
-            ].includes(h.key) && h.preventDefault();
-          };
-        return (
-          window.addEventListener("wheel", u, { passive: !1 }),
-          window.addEventListener("touchmove", u, { passive: !1 }),
-          window.addEventListener("keydown", d, { passive: !1 }),
-          () => {
-            (window.removeEventListener("wheel", u),
-              window.removeEventListener("touchmove", u),
-              window.removeEventListener("keydown", d));
-          }
-        );
       }, [s]),
       g.useEffect(() => {
         !s &&
