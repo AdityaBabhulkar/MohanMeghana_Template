@@ -26109,7 +26109,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
                     className: "font-body text-[10px] md:text-xs",
                     style: { color: "#5C2018" },
                     children:
-                      "Pentakota Convention Function Hall, Ring Road, Anakalalli.",
+                      "Pentakota Convention Function Hall, Ring Road, Anakapalli.",
                   }),
                   f.jsx("p", {
                     className: "font-body text-[10px] md:text-xs italic",
