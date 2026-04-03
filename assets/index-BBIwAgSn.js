@@ -25120,7 +25120,7 @@ const b$ = {
       "intro.scroll": "Scroll",
       "reveal.title": "Reveal",
       "reveal.subtitle": "Scratch to discover the date",
-      "reveal.scratchHint": "Scratch all three circles to continue",
+      "reveal.scratchHint": "Scratch the card to reveal the full date",
       "reveal.weddingAnnouncement": "We're getting married!",
       "countdown.title": "Countdown",
       "countdown.days": "Days",
@@ -25183,7 +25183,7 @@ const b$ = {
       "intro.scroll": "Scorri",
       "reveal.title": "Rivela",
       "reveal.subtitle": "Gratta per scoprire la data",
-      "reveal.scratchHint": "Gratta tutti e tre i cerchi per continuare",
+      "reveal.scratchHint": "Gratta la card per scoprire la data completa",
       "reveal.weddingAnnouncement": "Ci sposiamo!",
       "countdown.title": "Conto alla rovescia",
       "countdown.days": "Giorni",
@@ -25465,7 +25465,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
       ],
     });
   },
-  P$ = "/assets/scratch-gold-DQrdz0lH.png",
+  P$ = "/assets/scratch-gold-rect.svg",
   R$ = () => {
     const e = Array.from({ length: 60 }, (t, n) => ({
       id: n,
@@ -25538,6 +25538,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
       }, [t]),
       u = (h) => {
         if (s) return;
+        "touches" in h && (h.preventDefault(), h.stopPropagation());
         const p = r.current;
         if (!p) return;
         const x = p.getContext("2d");
@@ -25554,7 +25555,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
           (v *= w),
           (x.globalCompositeOperation = "destination-out"),
           x.beginPath(),
-          x.arc(b, v, 30, 0, Math.PI * 2),
+          x.arc(b, v, 36, 0, Math.PI * 2),
           x.fill());
       },
       d = () => {
@@ -25568,27 +25569,30 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
       className: "relative flex flex-col items-center",
       children: f.jsxs("div", {
         className:
-          "relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden",
+          "relative w-72 h-28 md:w-96 md:h-32 rounded-2xl overflow-hidden shadow-sm",
         children: [
           f.jsx("div", {
             className:
               "absolute inset-0 flex items-center justify-center bg-paper",
             children: f.jsx("span", {
-              className: "font-display text-2xl md:text-3xl",
+              className: "font-display text-2xl md:text-4xl tracking-[0.1em] uppercase whitespace-nowrap px-4",
               style: { color: "#5C2018" },
               children: e,
             }),
           }),
           f.jsx("canvas", {
             ref: r,
-            width: 150,
-            height: 150,
+            width: 420,
+            height: 160,
             className: `absolute inset-0 w-full h-full cursor-pointer transition-opacity duration-700 ${s ? "opacity-0 pointer-events-none" : "opacity-100"}`,
+            style: { touchAction: "none" },
             onMouseDown: () => a(!0),
             onMouseUp: d,
             onMouseLeave: d,
             onMouseMove: (h) => o && u(h),
-            onTouchStart: () => a(!0),
+            onTouchStart: (h) => {
+              h.preventDefault(), h.stopPropagation(), a(!0);
+            },
             onTouchEnd: d,
             onTouchMove: u,
           }),
@@ -25602,12 +25606,12 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
       [s, i] = g.useState(!1),
       o = g.useRef(null),
       { t: a } = lr(),
-      l = g.useMemo(() => ["29", "April", "2026"], []),
+      l = g.useMemo(() => ["29 April 2026"], []),
       c = () => {
         t((u) => {
           const d = u + 1;
           return (
-            d === 3 &&
+            d === 1 &&
               (r(!0),
               setTimeout(() => {
                 (i(!1), (document.body.style.overflow = ""));
@@ -36893,7 +36897,7 @@ const UV = () => {
         t(!0);
       };
     return f.jsxs("main", {
-      className: "bg-white",
+      className: "bg-white overflow-x-hidden",
       children: [
         f.jsx(FV, {}),
         f.jsx(VV, {}),

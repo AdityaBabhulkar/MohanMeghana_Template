@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 320" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="840" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8E7A3"/>
+      <stop offset="0.22" stop-color="#E1BF63"/>
+      <stop offset="0.5" stop-color="#B88325"/>
+      <stop offset="0.78" stop-color="#EBCF79"/>
+      <stop offset="1" stop-color="#8F5F12"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="140" y1="20" x2="500" y2="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF7CC" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#FFF7CC" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="noise" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="11" result="turb"/>
+      <feColorMatrix in="turb" type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0 .06 .12"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="840" height="320" rx="38" fill="url(#bg)"/>
+  <rect x="14" y="14" width="812" height="292" rx="26" stroke="#FFF3BF" stroke-opacity=".55" stroke-width="4"/>
+  <path d="M40 250C190 180 270 290 420 225C560 165 650 245 800 150V320H40V250Z" fill="#8D5C14" fill-opacity=".18"/>
+  <path d="M0 88C165 40 250 145 420 104C590 63 700 12 840 70V0H0V88Z" fill="url(#shine)"/>
+  <g opacity=".28">
+    <circle cx="140" cy="88" r="46" fill="#FFF3BF"/>
+    <circle cx="698" cy="234" r="58" fill="#6E460A"/>
+    <circle cx="462" cy="196" r="22" fill="#FFF3BF"/>
+    <circle cx="594" cy="102" r="18" fill="#6E460A"/>
+  </g>
+  <rect width="840" height="320" rx="38" fill="#fff" filter="url(#noise)"/>
+</svg>
