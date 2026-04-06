@@ -25120,7 +25120,7 @@ const b$ = {
       "intro.scroll": "Scroll",
       "reveal.title": "Reveal",
       "reveal.subtitle": "Scratch to discover the date",
-      "reveal.scratchHint": "Scratch the card to reveal the full date",
+      "reveal.scratchHint": "Scratch all three circles to continue",
       "reveal.weddingAnnouncement": "We're getting married!",
       "countdown.title": "Countdown",
       "countdown.days": "Days",
@@ -25183,7 +25183,7 @@ const b$ = {
       "intro.scroll": "Scorri",
       "reveal.title": "Rivela",
       "reveal.subtitle": "Gratta per scoprire la data",
-      "reveal.scratchHint": "Gratta la card per scoprire la data completa",
+      "reveal.scratchHint": "Gratta tutti e tre i cerchi per continuare",
       "reveal.weddingAnnouncement": "Ci sposiamo!",
       "countdown.title": "Conto alla rovescia",
       "countdown.days": "Giorni",
@@ -25465,7 +25465,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
       ],
     });
   },
-  P$ = "/assets/scratch-gold-rect.svg",
+  P$ = "/assets/scratch-gold-DQrdz0lH.png",
   R$ = () => {
     const e = Array.from({ length: 60 }, (t, n) => ({
       id: n,
@@ -25538,7 +25538,6 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
       }, [t]),
       u = (h) => {
         if (s) return;
-        "touches" in h && (h.preventDefault(), h.stopPropagation());
         const p = r.current;
         if (!p) return;
         const x = p.getContext("2d");
@@ -25555,7 +25554,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
           (v *= w),
           (x.globalCompositeOperation = "destination-out"),
           x.beginPath(),
-          x.arc(b, v, 36, 0, Math.PI * 2),
+          x.arc(b, v, 30, 0, Math.PI * 2),
           x.fill());
       },
       d = () => {
@@ -25569,30 +25568,27 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
       className: "relative flex flex-col items-center",
       children: f.jsxs("div", {
         className:
-          "relative w-72 h-28 md:w-96 md:h-32 rounded-2xl overflow-hidden shadow-sm",
+          "relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden",
         children: [
           f.jsx("div", {
             className:
               "absolute inset-0 flex items-center justify-center bg-paper",
             children: f.jsx("span", {
-              className: "font-display text-2xl md:text-4xl tracking-[0.1em] uppercase whitespace-nowrap px-4",
+              className: "font-display text-2xl md:text-3xl",
               style: { color: "#5C2018" },
               children: e,
             }),
           }),
           f.jsx("canvas", {
             ref: r,
-            width: 420,
-            height: 160,
+            width: 150,
+            height: 150,
             className: `absolute inset-0 w-full h-full cursor-pointer transition-opacity duration-700 ${s ? "opacity-0 pointer-events-none" : "opacity-100"}`,
-            style: { touchAction: "none" },
             onMouseDown: () => a(!0),
             onMouseUp: d,
             onMouseLeave: d,
             onMouseMove: (h) => o && u(h),
-            onTouchStart: (h) => {
-              h.preventDefault(), h.stopPropagation(), a(!0);
-            },
+            onTouchStart: () => a(!0),
             onTouchEnd: d,
             onTouchMove: u,
           }),
@@ -25606,86 +25602,34 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
       [s, i] = g.useState(!1),
       o = g.useRef(null),
       { t: a } = lr(),
-      l = g.useMemo(() => ["29 April 2026"], []),
+      l = g.useMemo(() => ["29", "April", "2026"], []),
       c = () => {
         t((u) => {
           const d = u + 1;
-          return (
-            d === 1 &&
-              (r(!0),
-              setTimeout(() => {
-                (i(!1), (document.body.style.overflow = ""));
-              }, 500)),
-            d
-          );
+          return d === 3 && (r(!0), setTimeout(() => i(!1), 500)), d;
         });
       };
     return (
       g.useEffect(() => {
         const u = o.current;
         if (!u) return;
-        let d = null;
-        const h = () => {
-            d !== null && (clearTimeout(d), (d = null));
-          },
-          p = new IntersectionObserver(
-          (x) => {
-            x.forEach((m) => {
-              if (!(m.isIntersecting && m.intersectionRatio >= 0.9 && e < 3)) {
-                h();
-                return;
-              }
-              h(),
-                (d = window.setTimeout(() => {
-                  const b = u.getBoundingClientRect();
-                  e < 3 &&
-                    b.top >= 0 &&
-                    b.bottom <= window.innerHeight &&
-                    (i(!0),
-                    (document.body.style.overflow = "hidden"),
-                    (document.documentElement.style.overflow = "hidden"));
-                }, 160));
+        const d = new IntersectionObserver(
+          (h) => {
+            h.forEach((p) => {
+              p.isIntersecting &&
+                p.intersectionRatio >= 0.9 &&
+                e < 3 &&
+                i(!0);
             });
           },
           { threshold: [0.9] },
         );
         return (
-          p.observe(u),
+          d.observe(u),
           () => {
-            h(), p.disconnect();
+            d.disconnect();
           }
         );
-      }, [e]),
-      g.useEffect(() => {
-        if (!s) return;
-        const u = (h) => (h.preventDefault(), h.stopPropagation(), !1),
-          d = (h) => {
-            [
-              "ArrowUp",
-              "ArrowDown",
-              "PageUp",
-              "PageDown",
-              "Home",
-              "End",
-              " ",
-            ].includes(h.key) && h.preventDefault();
-          };
-        return (
-          window.addEventListener("wheel", u, { passive: !1 }),
-          window.addEventListener("touchmove", u, { passive: !1 }),
-          window.addEventListener("keydown", d, { passive: !1 }),
-          () => {
-            (window.removeEventListener("wheel", u),
-              window.removeEventListener("touchmove", u),
-              window.removeEventListener("keydown", d));
-          }
-        );
-      }, [s]),
-      g.useEffect(() => {
-        !s &&
-          e === 3 &&
-          ((document.body.style.overflow = ""),
-          (document.documentElement.style.overflow = ""));
       }, [s, e]),
       f.jsxs("section", {
         ref: o,
@@ -36131,403 +36075,7 @@ function DV() {
                 children: t.subtitle,
               }),
             }),
-            f.jsxs(z.form, {
-              initial: { opacity: 0, y: 20 },
-              whileInView: { opacity: 1, y: 0 },
-              viewport: { once: !0 },
-              transition: { duration: 0.6, delay: 0.2 },
-              onSubmit: C,
-              className: "rounded-2xl p-6 md:p-8 space-y-6",
-              style: {
-                backgroundColor: "rgba(255, 255, 255, 0.6)",
-                border: "1px solid rgba(92, 32, 24, 0.1)",
-              },
-              children: [
-                f.jsx("div", {
-                  className: "absolute -left-[9999px] opacity-0",
-                  "aria-hidden": "true",
-                  children: f.jsx("input", {
-                    type: "text",
-                    name: "website",
-                    tabIndex: -1,
-                    autoComplete: "off",
-                    value: h.website,
-                    onChange: (E) => p({ ...h, website: E.target.value }),
-                  }),
-                }),
-                f.jsxs("div", {
-                  children: [
-                    f.jsxs(wt, {
-                      htmlFor: "name",
-                      className:
-                        "font-body text-xs tracking-widest uppercase mb-2 block",
-                      style: { color: "#5C2018" },
-                      children: [t.fullName, " *"],
-                    }),
-                    f.jsx(pn, {
-                      id: "name",
-                      required: !0,
-                      value: h.full_name,
-                      onChange: (E) => p({ ...h, full_name: E.target.value }),
-                      className:
-                        "bg-white/80 border-[rgba(92,32,24,0.2)] focus:border-[#5C2018] rounded-xl",
-                      style: { color: "#5C2018" },
-                      placeholder: t.fullNamePlaceholder,
-                    }),
-                  ],
-                }),
-                f.jsxs("div", {
-                  children: [
-                    f.jsx(wt, {
-                      htmlFor: "email",
-                      className:
-                        "font-body text-xs tracking-widest uppercase mb-2 block",
-                      style: { color: "#5C2018" },
-                      children: t.email,
-                    }),
-                    f.jsx(pn, {
-                      id: "email",
-                      type: "email",
-                      value: h.email,
-                      onChange: (E) => p({ ...h, email: E.target.value }),
-                      className:
-                        "bg-white/80 border-[rgba(92,32,24,0.2)] focus:border-[#5C2018] rounded-xl",
-                      style: { color: "#5C2018" },
-                      placeholder: "your@email.com",
-                    }),
-                  ],
-                }),
-                f.jsxs("div", {
-                  children: [
-                    f.jsxs(wt, {
-                      className:
-                        "font-body text-xs tracking-widest uppercase mb-3 block",
-                      style: { color: "#5C2018" },
-                      children: [t.willAttend, " *"],
-                    }),
-                    f.jsxs("div", {
-                      className: "flex flex-col sm:flex-row gap-3",
-                      children: [
-                        f.jsx("button", {
-                          type: "button",
-                          onClick: () => p({ ...h, attendance: "yes" }),
-                          className: `flex-1 py-3 px-4 rounded-xl font-body text-sm transition-all ${h.attendance === "yes" ? "shadow-md" : "hover:shadow-sm"}`,
-                          style: {
-                            backgroundColor:
-                              h.attendance === "yes"
-                                ? "#5C2018"
-                                : "rgba(255,255,255,0.8)",
-                            color:
-                              h.attendance === "yes" ? "#FAF8F5" : "#5C2018",
-                            border: `1px solid ${h.attendance === "yes" ? "#5C2018" : "rgba(92,32,24,0.2)"}`,
-                          },
-                          children: t.yes,
-                        }),
-                        f.jsx("button", {
-                          type: "button",
-                          onClick: () => p({ ...h, attendance: "no" }),
-                          className: `flex-1 py-3 px-4 rounded-xl font-body text-sm transition-all ${h.attendance === "no" ? "shadow-md" : "hover:shadow-sm"}`,
-                          style: {
-                            backgroundColor:
-                              h.attendance === "no"
-                                ? "#5C2018"
-                                : "rgba(255,255,255,0.8)",
-                            color:
-                              h.attendance === "no" ? "#FAF8F5" : "#5C2018",
-                            border: `1px solid ${h.attendance === "no" ? "#5C2018" : "rgba(92,32,24,0.2)"}`,
-                          },
-                          children: t.no,
-                        }),
-                      ],
-                    }),
-                  ],
-                }),
-                h.attendance === "yes" &&
-                  f.jsxs(f.Fragment, {
-                    children: [
-                      f.jsxs("div", {
-                        children: [
-                          f.jsx(wt, {
-                            htmlFor: "guests",
-                            className:
-                              "font-body text-xs tracking-widest uppercase mb-2 block",
-                            style: { color: "#5C2018" },
-                            children: t.guestCount,
-                          }),
-                          f.jsx(pn, {
-                            id: "guests",
-                            type: "number",
-                            min: "1",
-                            max: "10",
-                            value: u,
-                            onFocus: (E) => E.currentTarget.select(),
-                            onChange: (E) => y(E.target.value),
-                            onBlur: w,
-                            className:
-                              "w-24 bg-white/80 border-[rgba(92,32,24,0.2)] focus:border-[#5C2018] rounded-xl",
-                            style: { color: "#5C2018" },
-                          }),
-                        ],
-                      }),
-                      h.guest_count > 1 &&
-                        f.jsxs("div", {
-                          className: "space-y-4 p-4 rounded-xl",
-                          style: { backgroundColor: "rgba(92,32,24,0.03)" },
-                          children: [
-                            f.jsx(wt, {
-                              className:
-                                "font-body text-xs tracking-widest uppercase block",
-                              style: { color: "#5C2018" },
-                              children: t.companionTitle,
-                            }),
-                            l.map((E, _) =>
-                              f.jsxs(
-                                "div",
-                                {
-                                  className:
-                                    "space-y-2 p-3 rounded-lg bg-white/50",
-                                  children: [
-                                    f.jsxs("span", {
-                                      className: "font-body text-xs",
-                                      style: { color: "rgba(92,32,24,0.6)" },
-                                      children: [t.guest, " ", _ + 2],
-                                    }),
-                                    f.jsx(pn, {
-                                      value: E.name,
-                                      required: !0,
-                                      onChange: (k) =>
-                                        S(_, "name", k.target.value),
-                                      placeholder: t.companionNamePlaceholder,
-                                      className:
-                                        "bg-white/80 border-[rgba(92,32,24,0.2)] focus:border-[#5C2018] rounded-xl",
-                                      style: { color: "#5C2018" },
-                                    }),
-                                    f.jsx(pn, {
-                                      value: E.dietary,
-                                      onChange: (k) =>
-                                        S(_, "dietary", k.target.value),
-                                      placeholder:
-                                        t.companionDietaryPlaceholder,
-                                      className:
-                                        "bg-white/80 border-[rgba(92,32,24,0.2)] focus:border-[#5C2018] rounded-xl text-sm",
-                                      style: { color: "#5C2018" },
-                                    }),
-                                  ],
-                                },
-                                _,
-                              ),
-                            ),
-                          ],
-                        }),
-                      f.jsxs("div", {
-                        className: "space-y-4",
-                        children: [
-                          f.jsxs("div", {
-                            className: "flex items-center gap-2",
-                            children: [
-                              f.jsx(uN, {
-                                size: 16,
-                                style: { color: "#5C2018", opacity: 0.7 },
-                              }),
-                              f.jsx(wt, {
-                                className:
-                                  "font-body text-xs tracking-widest uppercase",
-                                style: { color: "#5C2018" },
-                                children: t.dietaryTitle,
-                              }),
-                            ],
-                          }),
-                          f.jsx("p", {
-                            className: "text-sm font-body",
-                            style: { color: "rgba(92,32,24,0.7)" },
-                            children: t.dietaryHelp,
-                          }),
-                          f.jsx("div", {
-                            className: "grid grid-cols-1 sm:grid-cols-2 gap-3",
-                            children: Iw.map((E) =>
-                              f.jsxs(
-                                "div",
-                                {
-                                  className: "flex items-center space-x-2",
-                                  children: [
-                                    f.jsx(o_, {
-                                      id: E.id,
-                                      checked: s.includes(E.id),
-                                      onCheckedChange: () => b(E.id),
-                                      className:
-                                        "border-[#5C2018] data-[state=checked]:bg-[#5C2018] data-[state=checked]:border-[#5C2018]",
-                                    }),
-                                    f.jsx(wt, {
-                                      htmlFor: E.id,
-                                      className:
-                                        "text-sm cursor-pointer font-body",
-                                      style: { color: "#5C2018" },
-                                      children: E[e],
-                                    }),
-                                  ],
-                                },
-                                E.id,
-                              ),
-                            ),
-                          }),
-                          f.jsxs("div", {
-                            children: [
-                              f.jsx(wt, {
-                                htmlFor: "other-allergy",
-                                className: "text-xs font-body",
-                                style: { color: "rgba(92,32,24,0.7)" },
-                                children: t.other,
-                              }),
-                              f.jsx(pn, {
-                                id: "other-allergy",
-                                value: o,
-                                onChange: (E) => a(E.target.value),
-                                className:
-                                  "mt-1 bg-white/80 border-[rgba(92,32,24,0.2)] focus:border-[#5C2018] rounded-xl",
-                                style: { color: "#5C2018" },
-                                placeholder: t.otherPlaceholder,
-                              }),
-                            ],
-                          }),
-                        ],
-                      }),
-                      f.jsxs("div", {
-                        className: "space-y-3",
-                        children: [
-                          f.jsxs("div", {
-                            className: "flex items-center gap-2",
-                            children: [
-                              f.jsx(JA, {
-                                size: 16,
-                                style: { color: "#5C2018", opacity: 0.7 },
-                              }),
-                              f.jsx(wt, {
-                                className:
-                                  "font-body text-xs tracking-widest uppercase",
-                                style: { color: "#5C2018" },
-                                children: t.transportTitle,
-                              }),
-                            ],
-                          }),
-                          f.jsx("p", {
-                            className: "text-sm font-body",
-                            style: { color: "rgba(92,32,24,0.7)" },
-                            children: t.transportHelp,
-                          }),
-                          f.jsxs("div", {
-                            className: "flex flex-col sm:flex-row gap-2",
-                            children: [
-                              f.jsx("button", {
-                                type: "button",
-                                onClick: () => p({ ...h, needs_bus: "yes" }),
-                                className:
-                                  "flex-1 py-2 px-4 rounded-xl font-body text-sm transition-all",
-                                style: {
-                                  backgroundColor:
-                                    h.needs_bus === "yes"
-                                      ? "#5C2018"
-                                      : "rgba(255,255,255,0.8)",
-                                  color:
-                                    h.needs_bus === "yes"
-                                      ? "#FAF8F5"
-                                      : "#5C2018",
-                                  border: `1px solid ${h.needs_bus === "yes" ? "#5C2018" : "rgba(92,32,24,0.2)"}`,
-                                },
-                                children: t.transportYes,
-                              }),
-                              f.jsx("button", {
-                                type: "button",
-                                onClick: () => p({ ...h, needs_bus: "no" }),
-                                className:
-                                  "flex-1 py-2 px-4 rounded-xl font-body text-sm transition-all",
-                                style: {
-                                  backgroundColor:
-                                    h.needs_bus === "no"
-                                      ? "#5C2018"
-                                      : "rgba(255,255,255,0.8)",
-                                  color:
-                                    h.needs_bus === "no"
-                                      ? "#FAF8F5"
-                                      : "#5C2018",
-                                  border: `1px solid ${h.needs_bus === "no" ? "#5C2018" : "rgba(92,32,24,0.2)"}`,
-                                },
-                                children: t.transportNo,
-                              }),
-                            ],
-                          }),
-                        ],
-                      }),
-                      f.jsxs("div", {
-                        className: "space-y-3",
-                        children: [
-                          f.jsxs("div", {
-                            className: "flex items-center gap-2",
-                            children: [
-                              f.jsx(bf, {
-                                size: 16,
-                                style: { color: "#5C2018", opacity: 0.7 },
-                              }),
-                              f.jsx(wt, {
-                                className:
-                                  "font-body text-xs tracking-widest uppercase",
-                                style: { color: "#5C2018" },
-                                children: t.songTitle,
-                              }),
-                            ],
-                          }),
-                          f.jsx("p", {
-                            className: "text-sm font-body",
-                            style: { color: "rgba(92,32,24,0.7)" },
-                            children: t.songHelp,
-                          }),
-                          f.jsx(pn, {
-                            value: h.song_suggestion,
-                            onChange: (E) =>
-                              p({ ...h, song_suggestion: E.target.value }),
-                            className:
-                              "bg-white/80 border-[rgba(92,32,24,0.2)] focus:border-[#5C2018] rounded-xl",
-                            style: { color: "#5C2018" },
-                            placeholder: t.songPlaceholder,
-                          }),
-                        ],
-                      }),
-                    ],
-                  }),
-                f.jsxs("div", {
-                  children: [
-                    f.jsx(wt, {
-                      htmlFor: "message",
-                      className:
-                        "font-body text-xs tracking-widest uppercase mb-2 block",
-                      style: { color: "#5C2018" },
-                      children: t.messageLabel,
-                    }),
-                    f.jsx(YE, {
-                      id: "message",
-                      value: h.message,
-                      onChange: (E) => p({ ...h, message: E.target.value }),
-                      className:
-                        "bg-white/80 border-[rgba(92,32,24,0.2)] focus:border-[#5C2018] rounded-xl",
-                      style: { color: "#5C2018" },
-                      placeholder: t.messagePlaceholder,
-                      rows: 3,
-                    }),
-                  ],
-                }),
-                f.jsx(Gn, {
-                  type: "submit",
-                  className:
-                    "w-full gap-2 font-body text-sm tracking-wide rounded-xl py-6",
-                  style: { backgroundColor: "#5C2018", color: "#FAF8F5" },
-                  disabled: x.isPending || !h.attendance,
-                  children: x.isPending
-                    ? t.sending
-                    : f.jsxs(f.Fragment, {
-                        children: [f.jsx(lN, { size: 16 }), t.send],
-                      }),
-                }),
-              ],
-            }),
+            
           ],
         }),
       });
@@ -36897,18 +36445,18 @@ const UV = () => {
         t(!0);
       };
     return f.jsxs("main", {
-      className: "bg-white overflow-x-hidden",
+      className: "bg-white",
       children: [
         f.jsx(FV, {}),
         f.jsx(VV, {}),
         f.jsx(MV, { startPlaying: e }),
         f.jsx(k$, { onFirstClick: n }),
         f.jsxs("section", {
-          className: "min-h-screen flex flex-col items-center justify-center py-12 px-8",
+          className: "flex flex-col items-center justify-center py-3 md:py-10 px-8",
           style: { backgroundColor: "rgb(250, 248, 245)" },
           children: [
             f.jsxs("div", {
-              className: "text-center mb-6",
+              className: "text-center mb-4",
               children: [
                 f.jsx("h2", {
                   className: "font-script text-4xl md:text-5xl mb-2",
@@ -36927,7 +36475,7 @@ const UV = () => {
               ]
             }),
             f.jsx("div", {
-              className: "text-center mb-6",
+              className: "text-center mb-4",
               children: f.jsx("h2", {
                 className: "font-script text-3xl md:text-4xl",
                 style: { color: "rgb(92, 32, 24)" },
@@ -36935,7 +36483,7 @@ const UV = () => {
               })
             }),
             f.jsxs("div", {
-              className: "text-center mb-8",
+              className: "text-center mb-2",
               children: [
                 f.jsx("h2", {
                   className: "font-script text-4xl md:text-5xl mb-2",
