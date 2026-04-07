@@ -25584,13 +25584,20 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
             width: 150,
             height: 150,
             className: `absolute inset-0 w-full h-full cursor-pointer transition-opacity duration-700 ${s ? "opacity-0 pointer-events-none" : "opacity-100"}`,
+            style: { touchAction: "none" },
             onMouseDown: () => a(!0),
             onMouseUp: d,
             onMouseLeave: d,
             onMouseMove: (h) => o && u(h),
-            onTouchStart: () => a(!0),
-            onTouchEnd: d,
-            onTouchMove: u,
+            onTouchStart: (h) => {
+              h.preventDefault(), a(!0), u(h);
+            },
+            onTouchEnd: (h) => {
+              h.preventDefault(), d();
+            },
+            onTouchMove: (h) => {
+              h.preventDefault(), o && u(h);
+            },
           }),
         ],
       }),
@@ -25606,7 +25613,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
       c = () => {
         t((u) => {
           const d = u + 1;
-          return d === 3 && (r(!0), setTimeout(() => i(!1), 500)), d;
+          return (d === 3 && (r(!0), setTimeout(() => i(!1), 500)), d);
         });
       };
     return (
@@ -25616,10 +25623,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
         const d = new IntersectionObserver(
           (h) => {
             h.forEach((p) => {
-              p.isIntersecting &&
-                p.intersectionRatio >= 0.9 &&
-                e < 3 &&
-                i(!0);
+              p.isIntersecting && p.intersectionRatio >= 0.9 && e < 3 && i(!0);
             });
           },
           { threshold: [0.9] },
@@ -25633,8 +25637,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
       }, [s, e]),
       f.jsxs("section", {
         ref: o,
-        className:
-          " flex flex-col items-center  py-8 px-8",
+        className: " flex flex-col items-center  py-8 px-8",
         style: { backgroundColor: "#FAF8F5" },
         children: [
           f.jsx(fu, { children: n && f.jsx(R$, {}) }),
@@ -25820,21 +25823,22 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
           viewport: { once: !0 },
           className: "text-center mb-8",
           children: [
-             f.jsx("h3", {
-                className: "font-display text-xl md:text-2xl tracking-wide mb-2",
-                style: { color: "#5C2018" },
-                children: "Sumuhurtham"
-             }),
-             f.jsx("p", {
-                className: "font-body text-sm md:text-base leading-relaxed",
-                style: { color: "#5C2018" },
-                children: "On Wednesday 29th April 2026 at 12:52 a.m."
-             }),
-             f.jsx("p", {
-                className: "font-body text-xs md:text-sm italic",
-                style: { color: "#5C2018" },
-                children: "(Early hours of Thursday) Chittha Nakshatram, Makara Lagnam."
-             }),
+            f.jsx("h3", {
+              className: "font-display text-xl md:text-2xl tracking-wide mb-2",
+              style: { color: "#5C2018" },
+              children: "Sumuhurtham",
+            }),
+            f.jsx("p", {
+              className: "font-body text-sm md:text-base leading-relaxed",
+              style: { color: "#5C2018" },
+              children: "On Wednesday 29th April 2026 at 12:52 a.m.",
+            }),
+            f.jsx("p", {
+              className: "font-body text-xs md:text-sm italic",
+              style: { color: "#5C2018" },
+              children:
+                "(Early hours of Thursday) Chittha Nakshatram, Makara Lagnam.",
+            }),
           ],
         }),
         f.jsxs(z.div, {
@@ -25844,22 +25848,22 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
           viewport: { once: !0 },
           className: "text-center",
           children: [
-             f.jsx("h3", {
-                className: "font-display text-xl md:text-2xl tracking-wide mb-2",
-                style: { color: "#5C2018" },
-                children: "Dinner"
-             }),
-             f.jsx("p", {
-                className: "font-body text-sm md:text-base leading-relaxed",
-                style: { color: "#5C2018" },
-                children: "On Wednesday 29th April 2026"
-             }),
-             f.jsx("p", {
-                className: "font-body text-xs md:text-sm italic",
-                style: { color: "#5C2018" },
-                children: "from 7:30 p.m. onwards at the Marriage Venue."
-             }),
-          ]
+            f.jsx("h3", {
+              className: "font-display text-xl md:text-2xl tracking-wide mb-2",
+              style: { color: "#5C2018" },
+              children: "Dinner",
+            }),
+            f.jsx("p", {
+              className: "font-body text-sm md:text-base leading-relaxed",
+              style: { color: "#5C2018" },
+              children: "On Wednesday 29th April 2026",
+            }),
+            f.jsx("p", {
+              className: "font-body text-xs md:text-sm italic",
+              style: { color: "#5C2018" },
+              children: "from 7:30 p.m. onwards at the Marriage Venue.",
+            }),
+          ],
         }),
       ],
     });
@@ -25967,11 +25971,12 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
     );
   },
   D$ = "/assets/menu-frame-BFE5kCs7.png",
-  MmCarouselImg1 = "/assets/mohan_meghana_1.jpg",
+  MmCarouselImg1 = "/assets/mohan_meghana_3.jpeg",
   MmCarouselImg2 = "/assets/mohan_meghana_2.jpg",
+  MmCarouselImg3 = "/assets/mohan_meghana_4.jpeg",
   MmCarousel = () => {
     const [e, t] = g.useState(0),
-      n = [MmCarouselImg1, MmCarouselImg2];
+      n = [MmCarouselImg1, MmCarouselImg2, MmCarouselImg3];
     return (
       g.useEffect(() => {
         const r = window.setInterval(() => {
@@ -25994,12 +25999,14 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
                 className: "text-center mb-6",
                 children: [
                   f.jsx("p", {
-                    className: "font-body text-xs tracking-[0.2em] uppercase mb-2",
+                    className:
+                      "font-body text-xs tracking-[0.2em] uppercase mb-2",
                     style: { color: "#5C2018" },
                     children: "Captured Moments",
                   }),
                   f.jsx("h2", {
-                    className: "font-display text-3xl md:text-4xl tracking-wide",
+                    className:
+                      "font-display text-3xl md:text-4xl tracking-wide",
                     style: { color: "#5C2018" },
                     children: "Mohan & Meghana",
                   }),
@@ -26122,7 +26129,9 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
                             borderRadius: "999px",
                             border: 0,
                             backgroundColor:
-                              e === s ? "rgb(92, 32, 24)" : "rgba(92, 32, 24, 0.25)",
+                              e === s
+                                ? "rgb(92, 32, 24)"
+                                : "rgba(92, 32, 24, 0.25)",
                             cursor: "pointer",
                             transform: e === s ? "scale(1.1)" : "scale(1)",
                           },
@@ -36288,7 +36297,6 @@ function DV() {
                 children: t.subtitle,
               }),
             }),
-            
           ],
         }),
       });
@@ -36475,10 +36483,9 @@ const Dw = "/assets/intro-music-CzqJOUtA.mp3",
           (o.style.overflowX = "hidden"),
           (o.style.maxWidth = "100%"),
           (o.style.overscrollBehaviorX = "none"),
-          a &&
-            ((a.style.overflowX = "hidden"), (a.style.maxWidth = "100%")),
+          a && ((a.style.overflowX = "hidden"), (a.style.maxWidth = "100%")),
           () => {
-            (i.style.overflowX = l.htmlOverflowX),
+            ((i.style.overflowX = l.htmlOverflowX),
               (i.style.maxWidth = l.htmlMaxWidth),
               (i.style.overscrollBehaviorX = l.htmlOverscrollBehaviorX),
               (o.style.overflowX = l.bodyOverflowX),
@@ -36486,7 +36493,7 @@ const Dw = "/assets/intro-music-CzqJOUtA.mp3",
               (o.style.overscrollBehaviorX = l.bodyOverscrollBehaviorX),
               a &&
                 ((a.style.overflowX = l.rootOverflowX),
-                (a.style.maxWidth = l.rootMaxWidth));
+                (a.style.maxWidth = l.rootMaxWidth)));
           }
         );
       }, []),
@@ -36701,7 +36708,8 @@ const UV = () => {
         f.jsx(MV, { startPlaying: e }),
         f.jsx(k$, { onFirstClick: n }),
         f.jsxs("section", {
-          className: "flex flex-col items-center justify-center py-3 md:py-10 px-8",
+          className:
+            "flex flex-col items-center justify-center py-3 md:py-10 px-8",
           style: { backgroundColor: "rgb(250, 248, 245)" },
           children: [
             f.jsxs("div", {
@@ -36710,26 +36718,27 @@ const UV = () => {
                 f.jsx("h2", {
                   className: "font-script text-4xl md:text-5xl mb-2",
                   style: { color: "rgb(92, 32, 24)" },
-                  children: "Mohan"
+                  children: "Mohan",
                 }),
                 f.jsxs("p", {
-                  className: "font-body text-xs md:text-sm tracking-[0.15em] uppercase",
+                  className:
+                    "font-body text-xs md:text-sm tracking-[0.15em] uppercase",
                   style: { color: "rgb(92, 32, 24)", lineHeight: 1.6 },
                   children: [
                     "Youngest Son of Polumuru Thrinadhachari,",
                     f.jsx("br", {}),
-                    "Smt. Sujatha"
-                  ]
-                })
-              ]
+                    "Smt. Sujatha",
+                  ],
+                }),
+              ],
             }),
             f.jsx("div", {
               className: "text-center mb-4",
               children: f.jsx("h2", {
                 className: "font-script text-3xl md:text-4xl",
                 style: { color: "rgb(92, 32, 24)" },
-                children: "&"
-              })
+                children: "&",
+              }),
             }),
             f.jsxs("div", {
               className: "text-center mb-2",
@@ -36737,20 +36746,21 @@ const UV = () => {
                 f.jsx("h2", {
                   className: "font-script text-4xl md:text-5xl mb-2",
                   style: { color: "rgb(92, 32, 24)" },
-                  children: "Meghana"
+                  children: "Meghana",
                 }),
                 f.jsxs("p", {
-                  className: "font-body text-xs md:text-sm tracking-[0.15em] uppercase",
+                  className:
+                    "font-body text-xs md:text-sm tracking-[0.15em] uppercase",
                   style: { color: "rgb(92, 32, 24)", lineHeight: 1.6 },
                   children: [
                     "Only Daughter of Dosuru Venkatarao,",
                     f.jsx("br", {}),
-                    "Smt. Lakshmi"
-                  ]
-                })
-              ]
-            })
-          ]
+                    "Smt. Lakshmi",
+                  ],
+                }),
+              ],
+            }),
+          ],
         }),
         f.jsx(N$, {}),
         f.jsx(I$, {}),
