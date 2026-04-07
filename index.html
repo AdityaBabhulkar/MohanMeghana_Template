@@ -938,6 +938,36 @@
           <p class="font-body text-xs md:text-sm italic" style="color: rgb(92, 32, 24);">from 7:30 p.m. onwards at the Marriage Venue.</p>
         </div>
       </section>
+      <section class="py-8 px-4" style="background-color: rgb(250, 248, 245);">
+        <div class="mx-auto w-full max-w-4xl" style="opacity: 0; transform: translateY(30px);">
+          <div class="text-center mb-6">
+            <p class="font-body text-xs tracking-[0.2em] uppercase mb-2" style="color: rgb(92, 32, 24);">Captured Moments</p>
+            <h2 class="font-display text-3xl md:text-4xl tracking-wide" style="color: rgb(92, 32, 24);">Mohan &amp; Meghana</h2>
+          </div>
+          <div id="photo-carousel" style="position: relative; border: 10px solid rgba(92, 32, 24, 0.95); border-radius: 28px; padding: 14px; background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(244,232,222,0.98)); box-shadow: 0 22px 48px rgba(92, 32, 24, 0.16); overflow: hidden;">
+            <div style="position: absolute; inset: 12px; border: 1px solid rgba(92, 32, 24, 0.18); border-radius: 18px; pointer-events: none;"></div>
+            <div style="position: relative; aspect-ratio: 16 / 10; border-radius: 18px; overflow: hidden; background-color: rgba(92, 32, 24, 0.08);">
+              <img src="/assets/mohan_meghana_1.jpg" alt="Mohan and Meghana portrait 1" data-carousel-slide="0" class="carousel-slide" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 1;">
+              <img src="/assets/mohan_meghana_2.jpg" alt="Mohan and Meghana portrait 2" data-carousel-slide="1" class="carousel-slide" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;">
+            </div>
+            <button type="button" class="carousel-control" data-carousel-dir="prev" aria-label="Show previous photo" style="left: 18px;">&#10094;</button>
+            <button type="button" class="carousel-control" data-carousel-dir="next" aria-label="Show next photo" style="right: 18px;">&#10095;</button>
+            <div style="display: flex; justify-content: center; gap: 10px; padding-top: 18px;">
+              <button type="button" class="carousel-dot active" data-carousel-dot="0" aria-label="Show photo 1"></button>
+              <button type="button" class="carousel-dot" data-carousel-dot="1" aria-label="Show photo 2"></button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-6 px-4" style="background-color: rgb(250, 248, 245);">
+        <div class="mx-auto w-full max-w-3xl" style="opacity: 0; transform: translateY(30px);">
+          <div style="border: 1px solid rgba(92, 32, 24, 0.18); border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(248,241,235,0.98)); padding: 32px 24px; box-shadow: 0 16px 38px rgba(92, 32, 24, 0.1); text-align: center;">
+            <p class="font-body text-xs tracking-[0.22em] uppercase mb-3" style="color: rgb(92, 32, 24);">Transport</p>
+            <h2 class="font-display text-3xl md:text-4xl tracking-wide mb-4" style="color: rgb(92, 32, 24);">Travel Convenience</h2>
+            <p class="font-body text-sm md:text-base leading-relaxed" style="color: rgba(92, 32, 24, 0.88);">Transportation arrangements are available from the bride&rsquo;s and groom&rsquo;s residences for the convenience of our guests.</p>
+          </div>
+        </div>
+      </section>
       <section class="flex flex-col items-center justify-center py-4 px-4"
         style="background-color: rgb(250, 248, 245);">
         <div class="relative w-full max-w-md md:max-w-lg" style="opacity: 0; transform: translateY(30px);"><img
@@ -1103,6 +1133,139 @@
   </div>
 
 
+  <style>
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      overscroll-behavior-x: none;
+      position: relative;
+    }
+
+    body > div,
+    main {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    #photo-carousel .carousel-slide {
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    #photo-carousel .carousel-control {
+      position: absolute;
+      top: calc(50% - 30px);
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 999px;
+      background-color: rgba(92, 32, 24, 0.78);
+      color: #fff;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      z-index: 2;
+    }
+
+    #photo-carousel .carousel-control:hover {
+      background-color: rgb(92, 32, 24);
+      transform: translateY(-1px);
+    }
+
+    #photo-carousel .carousel-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 999px;
+      border: 0;
+      background-color: rgba(92, 32, 24, 0.25);
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    #photo-carousel .carousel-dot.active {
+      background-color: rgb(92, 32, 24);
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 640px) {
+      #photo-carousel {
+        padding: 10px !important;
+        border-width: 8px !important;
+        border-radius: 22px !important;
+      }
+
+      #photo-carousel .carousel-control {
+        width: 38px;
+        height: 38px;
+        font-size: 22px;
+      }
+    }
+  </style>
+  <script>
+    (function() {
+      var carousel = document.getElementById('photo-carousel');
+      if (!carousel) return;
+
+      var slides = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-slide'));
+      var dots = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-dot'));
+      var currentIndex = 0;
+      var autoplay;
+
+      function renderSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+        slides.forEach(function(slide, slideIndex) {
+          slide.style.opacity = slideIndex === currentIndex ? '1' : '0';
+        });
+        dots.forEach(function(dot, dotIndex) {
+          if (dotIndex === currentIndex) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        autoplay = window.setInterval(function() {
+          renderSlide(currentIndex + 1);
+        }, 3500);
+      }
+
+      function stopAutoplay() {
+        if (autoplay) {
+          window.clearInterval(autoplay);
+        }
+      }
+
+      carousel.querySelectorAll('[data-carousel-dir]').forEach(function(button) {
+        button.addEventListener('click', function() {
+          var direction = button.getAttribute('data-carousel-dir') === 'next' ? 1 : -1;
+          renderSlide(currentIndex + direction);
+          startAutoplay();
+        });
+      });
+
+      dots.forEach(function(dot, dotIndex) {
+        dot.addEventListener('click', function() {
+          renderSlide(dotIndex);
+          startAutoplay();
+        });
+      });
+
+      carousel.addEventListener('mouseenter', stopAutoplay);
+      carousel.addEventListener('mouseleave', startAutoplay);
+
+      renderSlide(0);
+      startAutoplay();
+    })();
+  </script>
   <script>
     (function() {
       var whatsappNumber1 = ''; // Mohan's WhatsApp Number
