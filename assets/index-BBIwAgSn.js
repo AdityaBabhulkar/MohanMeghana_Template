@@ -25435,7 +25435,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
           }),
         n === "done" &&
           f.jsx(z.div, {
-            className: "absolute bottom-8 left-0 right-0 flex justify-center",
+            className: "absolute  left-0 right-0 flex justify-center",
             initial: { opacity: 0, y: -10 },
             animate: { opacity: 1, y: 0 },
             transition: { duration: 0.6, delay: 1.5, ease: "easeOut" },
@@ -25446,7 +25446,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
               children: [
                 f.jsx("p", {
                   className:
-                    "font-display text-[10px] tracking-[0.2em] uppercase mb-2",
+                    "font-display text-[10px] tracking-[0.2em] uppercase",
                   style: { color: "#5C2018" },
                   children: a("intro.scroll"),
                 }),
@@ -25634,7 +25634,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
       f.jsxs("section", {
         ref: o,
         className:
-          "min-h-screen flex flex-col items-center justify-center py-8 px-8",
+          " flex flex-col items-center  py-8 px-8",
         style: { backgroundColor: "#FAF8F5" },
         children: [
           f.jsx(fu, { children: n && f.jsx(R$, {}) }),
@@ -25700,7 +25700,7 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
                   initial: { opacity: 0, y: 5 },
                   animate: { opacity: 1, y: 0 },
                   transition: { duration: 0.5, delay: 1.2 },
-                  className: "mt-3 font-body text-xs tracking-wide text-center",
+                  className: " font-body text-xs tracking-wide text-center",
                   style: { color: "rgba(92, 32, 24, 0.6)" },
                   children: a("reveal.scratchHint"),
                 }),
@@ -25967,6 +25967,219 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
     );
   },
   D$ = "/assets/menu-frame-BFE5kCs7.png",
+  MmCarouselImg1 = "/assets/mohan_meghana_1.jpg",
+  MmCarouselImg2 = "/assets/mohan_meghana_2.jpg",
+  MmCarousel = () => {
+    const [e, t] = g.useState(0),
+      n = [MmCarouselImg1, MmCarouselImg2];
+    return (
+      g.useEffect(() => {
+        const r = window.setInterval(() => {
+          t((s) => (s + 1) % n.length);
+        }, 3500);
+        return () => window.clearInterval(r);
+      }, []),
+      f.jsx("section", {
+        className: "py-8 px-4",
+        style: { backgroundColor: "#FAF8F5" },
+        children: f.jsx(z.div, {
+          initial: { opacity: 0, y: 30 },
+          whileInView: { opacity: 1, y: 0 },
+          transition: { duration: 0.8, ease: "easeOut" },
+          viewport: { once: !0 },
+          className: "mx-auto w-full max-w-4xl",
+          children: f.jsxs("div", {
+            children: [
+              f.jsxs("div", {
+                className: "text-center mb-6",
+                children: [
+                  f.jsx("p", {
+                    className: "font-body text-xs tracking-[0.2em] uppercase mb-2",
+                    style: { color: "#5C2018" },
+                    children: "Captured Moments",
+                  }),
+                  f.jsx("h2", {
+                    className: "font-display text-3xl md:text-4xl tracking-wide",
+                    style: { color: "#5C2018" },
+                    children: "Mohan & Meghana",
+                  }),
+                ],
+              }),
+              f.jsxs("div", {
+                style: {
+                  position: "relative",
+                  border: "10px solid rgba(92, 32, 24, 0.95)",
+                  borderRadius: "28px",
+                  padding: "14px",
+                  background:
+                    "linear-gradient(135deg, rgba(255,255,255,0.96), rgba(244,232,222,0.98))",
+                  boxShadow: "0 22px 48px rgba(92, 32, 24, 0.16)",
+                  overflow: "hidden",
+                },
+                children: [
+                  f.jsx("div", {
+                    style: {
+                      position: "absolute",
+                      inset: "12px",
+                      border: "1px solid rgba(92, 32, 24, 0.18)",
+                      borderRadius: "18px",
+                      pointerEvents: "none",
+                    },
+                  }),
+                  f.jsx("div", {
+                    style: {
+                      position: "relative",
+                      aspectRatio: "8 / 10",
+                      borderRadius: "18px",
+                      overflow: "hidden",
+                      backgroundColor: "rgba(92, 32, 24, 0.08)",
+                    },
+                    children: n.map((r, s) =>
+                      f.jsx(
+                        "img",
+                        {
+                          src: r,
+                          alt: `Mohan and Meghana portrait ${s + 1}`,
+                          style: {
+                            position: "absolute",
+                            inset: 0,
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            opacity: e === s ? 1 : 0,
+                            transition: "opacity 0.8s ease-in-out",
+                          },
+                        },
+                        r,
+                      ),
+                    ),
+                  }),
+                  f.jsx("button", {
+                    type: "button",
+                    "aria-label": "Show previous photo",
+                    onClick: () => t((r) => (r - 1 + n.length) % n.length),
+                    style: {
+                      position: "absolute",
+                      top: "calc(50% - 30px)",
+                      left: "18px",
+                      width: "44px",
+                      height: "44px",
+                      border: 0,
+                      borderRadius: "999px",
+                      backgroundColor: "rgba(92, 32, 24, 0.78)",
+                      color: "#fff",
+                      fontSize: "26px",
+                      lineHeight: 1,
+                      cursor: "pointer",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      zIndex: 2,
+                    },
+                    children: "\u2039",
+                  }),
+                  f.jsx("button", {
+                    type: "button",
+                    "aria-label": "Show next photo",
+                    onClick: () => t((r) => (r + 1) % n.length),
+                    style: {
+                      position: "absolute",
+                      top: "calc(50% - 30px)",
+                      right: "18px",
+                      width: "44px",
+                      height: "44px",
+                      border: 0,
+                      borderRadius: "999px",
+                      backgroundColor: "rgba(92, 32, 24, 0.78)",
+                      color: "#fff",
+                      fontSize: "26px",
+                      lineHeight: 1,
+                      cursor: "pointer",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      zIndex: 2,
+                    },
+                    children: "\u203a",
+                  }),
+                  f.jsx("div", {
+                    style: {
+                      display: "flex",
+                      justifyContent: "center",
+                      gap: "10px",
+                      paddingTop: "18px",
+                    },
+                    children: n.map((r, s) =>
+                      f.jsx(
+                        "button",
+                        {
+                          type: "button",
+                          "aria-label": `Show photo ${s + 1}`,
+                          onClick: () => t(s),
+                          style: {
+                            width: "11px",
+                            height: "11px",
+                            borderRadius: "999px",
+                            border: 0,
+                            backgroundColor:
+                              e === s ? "rgb(92, 32, 24)" : "rgba(92, 32, 24, 0.25)",
+                            cursor: "pointer",
+                            transform: e === s ? "scale(1.1)" : "scale(1)",
+                          },
+                        },
+                        r + s,
+                      ),
+                    ),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        }),
+      })
+    );
+  },
+  TransportSection = () =>
+    f.jsx("section", {
+      className: "py-6 px-4",
+      style: { backgroundColor: "#FAF8F5" },
+      children: f.jsx(z.div, {
+        initial: { opacity: 0, y: 30 },
+        whileInView: { opacity: 1, y: 0 },
+        transition: { duration: 0.8, ease: "easeOut" },
+        viewport: { once: !0 },
+        className: "mx-auto w-full max-w-3xl",
+        children: f.jsxs("div", {
+          style: {
+            border: "1px solid rgba(92, 32, 24, 0.18)",
+            borderRadius: "24px",
+            background:
+              "linear-gradient(180deg, rgba(255,255,255,0.95), rgba(248,241,235,0.98))",
+            padding: "32px 24px",
+            boxShadow: "0 16px 38px rgba(92, 32, 24, 0.1)",
+            textAlign: "center",
+          },
+          children: [
+            f.jsx("p", {
+              className: "font-body text-xs tracking-[0.22em] uppercase mb-3",
+              style: { color: "#5C2018" },
+              children: "Transport",
+            }),
+            f.jsx("h2", {
+              className: "font-display text-3xl md:text-4xl tracking-wide mb-4",
+              style: { color: "#5C2018" },
+              children: "Travel Convenience",
+            }),
+            f.jsx("p", {
+              className: "font-body text-sm md:text-base leading-relaxed",
+              style: { color: "rgba(92, 32, 24, 0.88)" },
+              children:
+                "Transportation arrangements are available from the bride's and groom's residences for the convenience of our guests.",
+            }),
+          ],
+        }),
+      }),
+    }),
   M$ = () =>
     f.jsx("section", {
       className: "flex flex-col items-center justify-center py-8 px-4",
@@ -25992,17 +26205,17 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
                 children: [
                   f.jsx("h3", {
                     className:
-                      "font-display text-xs md:text-sm tracking-[0.2em] uppercase mb-1",
+                      "font-display text-3xs md:text-sm tracking-[0.1em] uppercase mb-1",
                     style: { color: "#5C2018" },
                     children: "RECEPTION & LUNCH",
                   }),
                   f.jsx("p", {
-                    className: "font-body text-[10px] md:text-xs",
+                    className: "font-body text-[20px] md:text-xs",
                     style: { color: "#5C2018" },
                     children: " ",
                   }),
                   f.jsx("p", {
-                    className: "font-body text-[10px] md:text-xs italic",
+                    className: "font-body text-[20px] md:text-xs italic",
                     style: { color: "#5C2018" },
                     children: " ",
                   }),
@@ -26017,17 +26230,17 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
                 children: [
                   f.jsx("h3", {
                     className:
-                      "font-display text-xs md:text-sm tracking-[0.2em] uppercase mb-1",
+                      "font-display text-3xs md:text-sm tracking-[0.1em] uppercase mb-1",
                     style: { color: "#5C2018" },
                     children: "DATE AND DAY",
                   }),
                   f.jsx("p", {
-                    className: "font-body text-[10px] md:text-xs",
+                    className: "font-body text-[20px] md:text-xs",
                     style: { color: "#5C2018" },
                     children: "3rd May 2026, On Sunday",
                   }),
                   f.jsx("p", {
-                    className: "font-body text-[10px] md:text-xs italic",
+                    className: "font-body text-[20px] md:text-xs italic",
                     style: { color: "#5C2018" },
                   }),
                 ],
@@ -26041,12 +26254,12 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
                 children: [
                   f.jsx("h3", {
                     className:
-                      "font-display text-xs md:text-sm tracking-[0.2em] uppercase mb-1",
+                      "font-display text-3xs md:text-sm tracking-[0.1em] uppercase mb-1",
                     style: { color: "#5C2018" },
                     children: "LUNCH TIME",
                   }),
                   f.jsx("p", {
-                    className: "font-body text-[10px] md:text-xs",
+                    className: "font-body text-[20px] md:text-xs",
                     style: { color: "#5C2018" },
                     children: "12:00 noon onwards",
                   }),
@@ -26061,18 +26274,18 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
                 children: [
                   f.jsx("h3", {
                     className:
-                      "font-display text-xs md:text-sm tracking-[0.2em] uppercase mb-1",
+                      "font-display text-3xs md:text-sm tracking-[0.1em] uppercase mb-1",
                     style: { color: "#5C2018" },
                     children: "VENUE",
                   }),
                   f.jsx("p", {
-                    className: "font-body text-[10px] md:text-xs",
+                    className: "font-body text-[20px] md:text-xs",
                     style: { color: "#5C2018" },
                     children:
                       "Pentakota Convention Function Hall, Ring Road, Anakapalli.",
                   }),
                   f.jsx("p", {
-                    className: "font-body text-[10px] md:text-xs italic",
+                    className: "font-body text-[20px] md:text-xs italic",
                     style: { color: "#5C2018" },
                     children: "",
                   }),
@@ -36242,6 +36455,42 @@ const Dw = "/assets/intro-music-CzqJOUtA.mp3",
       { t: s } = lr();
     return (
       g.useEffect(() => {
+        const i = document.documentElement,
+          o = document.body,
+          a = document.getElementById("root"),
+          l = {
+            htmlOverflowX: i.style.overflowX,
+            htmlMaxWidth: i.style.maxWidth,
+            htmlOverscrollBehaviorX: i.style.overscrollBehaviorX,
+            bodyOverflowX: o.style.overflowX,
+            bodyMaxWidth: o.style.maxWidth,
+            bodyOverscrollBehaviorX: o.style.overscrollBehaviorX,
+            rootOverflowX: a ? a.style.overflowX : "",
+            rootMaxWidth: a ? a.style.maxWidth : "",
+          };
+        return (
+          (i.style.overflowX = "hidden"),
+          (i.style.maxWidth = "100%"),
+          (i.style.overscrollBehaviorX = "none"),
+          (o.style.overflowX = "hidden"),
+          (o.style.maxWidth = "100%"),
+          (o.style.overscrollBehaviorX = "none"),
+          a &&
+            ((a.style.overflowX = "hidden"), (a.style.maxWidth = "100%")),
+          () => {
+            (i.style.overflowX = l.htmlOverflowX),
+              (i.style.maxWidth = l.htmlMaxWidth),
+              (i.style.overscrollBehaviorX = l.htmlOverscrollBehaviorX),
+              (o.style.overflowX = l.bodyOverflowX),
+              (o.style.maxWidth = l.bodyMaxWidth),
+              (o.style.overscrollBehaviorX = l.bodyOverscrollBehaviorX),
+              a &&
+                ((a.style.overflowX = l.rootOverflowX),
+                (a.style.maxWidth = l.rootMaxWidth));
+          }
+        );
+      }, []),
+      g.useEffect(() => {
         const i = () => {
           t(window.scrollY > 100);
         };
@@ -36506,6 +36755,8 @@ const UV = () => {
         f.jsx(N$, {}),
         f.jsx(I$, {}),
         f.jsx(O$, {}),
+        f.jsx(MmCarousel, {}),
+        f.jsx(TransportSection, {}),
         f.jsx(M$, {}),
         f.jsx($$, {}),
         f.jsx(V$, {}),
