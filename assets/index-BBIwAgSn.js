@@ -25804,14 +25804,20 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
           viewport: { once: !0 },
           className: "text-center mb-8",
           children: [
-            f.jsx("p", {
+            f.jsx("a", {
               className: "font-body text-xs tracking-[0.2em] uppercase",
-              style: { color: "#5C2018" },
+              style: { color: "#5C2018", display: "block" },
+              href: "https://maps.app.goo.gl/MPXV9cfjyL49Ff439",
+              target: "_blank",
+              rel: "noopener noreferrer",
               children: "Vepagunta Junction, Near Sai Baba Temple,",
             }),
-            f.jsx("p", {
+            f.jsx("a", {
               className: "font-body text-xs tracking-[0.2em] uppercase",
-              style: { color: "#5C2018" },
+              style: { color: "#5C2018", display: "block" },
+              href: "https://maps.app.goo.gl/MPXV9cfjyL49Ff439",
+              target: "_blank",
+              rel: "noopener noreferrer",
               children: "Pinagadi Road, Vepagunta, Visakhapatnam.",
             }),
           ],
@@ -26287,9 +26293,12 @@ const k$ = ({ onComplete: e, onFirstClick: t }) => {
                     style: { color: "#5C2018" },
                     children: "VENUE",
                   }),
-                  f.jsx("p", {
+                  f.jsx("a", {
                     className: "font-body text-[20px] md:text-xs",
                     style: { color: "#5C2018" },
+                    href: "https://maps.app.goo.gl/xrX7wrvZKw883HGaA",
+                    target: "_blank",
+                    rel: "noopener noreferrer",
                     children:
                       "Pentakota Convention Function Hall, Ring Road, Anakapalli.",
                   }),
